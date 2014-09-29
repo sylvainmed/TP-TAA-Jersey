@@ -33,11 +33,11 @@ public class JpaTest {
 	}
 	
 	public List<Event> getEvents(){
-		return manager.createQuery("FROM Event").getResultList();
+		return manager.createQuery("select e FROM Event e", Event.class).getResultList();
 	}
 	
 	public Event getEvent(int id){
-		Event event = (Event) manager.createQuery("FROM Event WHERE id=1").getSingleResult();
+		Event event = (Event) manager.find(Event.class, 1);
 		return(event);
 	}
 	
