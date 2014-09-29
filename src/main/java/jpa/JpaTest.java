@@ -32,8 +32,41 @@ public class JpaTest {
 		
 	}
 	
+	public Passager addPassager(String nom, Voiture voiture){
+		Passager p = new Passager();
+		p.setNom(nom);
+		p.setVoiture(voiture);
+		manager.persist(p);
+		return p;
+	}
+	
+	public Passager addPassager(String nom){
+		Passager p = new Passager();
+		p.setNom(nom);
+		manager.persist(p);
+		return p;
+	}
+	
+	public List<Voiture> getVoitures(){
+		return manager.createQuery("select e FROM Voiture e", Voiture.class).getResultList();
+	}
+	
+	public List<Passager> getPassagers(){
+		return manager.createQuery("select e FROM Passagers e", Passager.class).getResultList();
+	}
+	
 	public List<Event> getEvents(){
 		return manager.createQuery("select e FROM Event e", Event.class).getResultList();
+	}
+	
+	public Voiture getVoiture(int id){
+		Voiture voiture = (Voiture) manager.find(Voiture.class, 1);
+		return(voiture);
+	}
+	
+	public Passager getPassager(int id){
+		Passager passager = (Passager) manager.find(Passager.class, 1);
+		return(passager);
 	}
 	
 	public Event getEvent(int id){
