@@ -19,13 +19,13 @@ import javax.persistence.OneToMany;
 @Table(name = "Voiture")
 public class Voiture {
 	
-	@Id
-	@GeneratedValue
+
 	private int id;
 	private int places;
 	private List<Passager> passagers;
 	private Event event;
-	
+	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}
@@ -42,7 +42,7 @@ public class Voiture {
 		this.places = places;
 	}
 	
-	@OneToMany(mappedBy="Voiture")
+	@OneToMany(mappedBy="voiture")
 	public List<Passager> getPassagers() {
 		return passagers;
 	}

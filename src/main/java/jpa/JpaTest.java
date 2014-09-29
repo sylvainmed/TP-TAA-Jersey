@@ -56,7 +56,7 @@ public class JpaTest {
 		try {
 			Event event = new Event();
 			test.addVoiture(3, event);
-			//manager.persist(et);
+			manager.persist(event);
 					
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -1,6 +1,5 @@
 package jpa;
 import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.ManyToOne;
@@ -18,14 +17,14 @@ import javax.persistence.Id;
 @Entity
 @Table(name = "Passager")
 public class Passager {
-	
-	@Id
-	@GeneratedValue
+
 	private int id;
 	private String nom;
 	private Voiture voiture;
 	private List<Event> events;
 	
+	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}

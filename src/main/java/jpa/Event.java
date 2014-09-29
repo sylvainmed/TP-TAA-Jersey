@@ -19,15 +19,15 @@ import javax.persistence.Id;
 @Entity
 @Table(name = "Event")
 public class Event {
-	
-	@Id
-	@GeneratedValue
+
 	private int id;
 	private String place;
 	private String date;
 	private String heure;
 	private List<Voiture> voitures;
 	
+	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}
@@ -52,7 +52,7 @@ public class Event {
 	public void setHeure(String heure) {
 		this.heure = heure;
 	}
-	@OneToMany(mappedBy="Event")
+	@OneToMany(mappedBy="event")
 	public List<Voiture> getVoitures() {
 		return voitures;
 	}
