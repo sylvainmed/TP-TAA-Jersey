@@ -48,28 +48,28 @@ public class JpaTest {
 	}
 	
 	public List<Voiture> getVoitures(){
-		return manager.createQuery("select e FROM Voiture e", Voiture.class).getResultList();
+		return manager.createQuery("select v FROM Voiture v", Voiture.class).getResultList();
 	}
 	
 	public List<Passager> getPassagers(){
-		return manager.createQuery("select e FROM Passagers e", Passager.class).getResultList();
+		return manager.createQuery("select p FROM Passagers p", Passager.class).getResultList();
 	}
 	
 	public List<Event> getEvents(){
 		return manager.createQuery("select e FROM Event e", Event.class).getResultList();
 	}
 	
-	public Voiture getVoiture(int id){
+	public Voiture getVoitureById(int id){
 		Voiture voiture = (Voiture) manager.find(Voiture.class, 1);
 		return(voiture);
 	}
 	
-	public Passager getPassager(int id){
+	public Passager getPassagerById(int id){
 		Passager passager = (Passager) manager.find(Passager.class, 1);
 		return(passager);
 	}
 	
-	public Event getEvent(int id){
+	public Event getEventById(int id){
 		Event event = (Event) manager.find(Event.class, 1);
 		return(event);
 	}

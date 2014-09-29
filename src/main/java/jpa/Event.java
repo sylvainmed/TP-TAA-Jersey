@@ -59,6 +59,10 @@ public class Event {
 	public void setVoitures(List<Voiture> voitures) {
 		this.voitures = voitures;
 	}
+	public Voiture addVoiture(Voiture voiture){
+		this.voitures.add(voiture);
+		return voiture;
+	}
 	
 	
 	
