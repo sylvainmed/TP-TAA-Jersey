@@ -42,21 +42,13 @@ public class JpaTest {
 	
 	public void addEvent(String place, String date, String heure){
 		Event event = new Event();
-		try {
 		event.setDate(date);
 		event.setHeure(heure);
 		event.setPlace(place);
 		tx.begin();
 		manager.persist(event);
-		} catch(NoResultException e){
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			}finally{
-				tx.commit();
-			}
+		tx.commit();
+			
 		
 	}
 	
@@ -100,6 +92,7 @@ public class JpaTest {
 		try {
 			test.addVoiture(3, 5);
 			test.addVoiture(2, 6);
+			test.addEvent("5", "23/02/1998", "12:25");
 					
 		} catch (Exception e) {
 			e.printStackTrace();
