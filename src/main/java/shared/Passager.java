@@ -1,9 +1,7 @@
-package jpa;
-import java.util.List;
+package shared;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Id;
 
@@ -21,7 +19,7 @@ public class Passager {
 	private int id;
 	private String nom;
 	private Voiture voiture;
-	private List<Event> events;
+	private Event event;
 	
 	@Id
 	@GeneratedValue
@@ -50,14 +48,15 @@ public class Passager {
 		this.voiture = voiture;
 	}
 	
-	@OneToMany
-	public List<Event> getEvents() {
-		return events;
+	@ManyToOne
+	public Event getEvent() {
+		return event;
 	}
-
-	public void setEvents(List<Event> events) {
-		this.events = events;
+	public void setEvent(Event event) {
+		this.event = event;
+		event.getPassagers().add(this);
 	}
+	
 	
 	
 }

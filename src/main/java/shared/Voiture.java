@@ -1,4 +1,4 @@
-package jpa;
+package shared;
 
 import java.util.List;
 
@@ -24,6 +24,7 @@ public class Voiture {
 	private int places;
 	private List<Passager> passagers;
 	private Event event;
+	
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -58,6 +59,14 @@ public class Voiture {
 
 	public void setEvent(Event event) {
 		this.event = event;
+	}
+	
+	public void decPlaces(){
+		this.places--;
+	}
+	
+	public void incPlaces(){
+		this.places++;
 	}
 
 	

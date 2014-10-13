@@ -1,4 +1,4 @@
-package jpa;
+package shared;
 
 import java.util.List;
 
@@ -24,12 +24,20 @@ public class Event {
 	private String place;
 	private String date;
 	private String heure;
+	private List<Passager> passagers;
 	private List<Voiture> voitures;
 	
 	@Id
 	@GeneratedValue
 	public int getId() {
 		return id;
+	}
+	@OneToMany(mappedBy="event")
+	public List<Passager> getPassagers() {
+		return passagers;
+	}
+	public void setPassagers(List<Passager> passagers) {
+		this.passagers = passagers;
 	}
 	public void setId(int id) {
 		this.id = id;
