@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 /**
  * Class Voiture
  * @author Sylvain MEDARD
@@ -44,6 +46,7 @@ public class Voiture {
 	}
 	
 	@OneToMany(mappedBy="voiture")
+	@JsonIgnore
 	public List<Passager> getPassagers() {
 		return passagers;
 	}
@@ -74,6 +77,7 @@ public class Voiture {
 	}
 	
 	@ManyToOne
+	@JsonIgnore
 	public Event getEvent() {
 		return event;
 	}

@@ -1,5 +1,6 @@
 package shared;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -7,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Id;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 
 /**
@@ -24,7 +27,7 @@ public class Event {
 	private String place;
 	private String date;
 	private String heure;
-	private List<Passager> passagers;
+	private List<Passager> passagers = new ArrayList();
 	private List<Voiture> voitures;
 	
 	@Id
@@ -61,6 +64,7 @@ public class Event {
 		this.heure = heure;
 	}
 	@OneToMany(mappedBy="event")
+	@JsonIgnore
 	public List<Voiture> getVoitures() {
 		return voitures;
 	}

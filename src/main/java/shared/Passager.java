@@ -1,9 +1,13 @@
 package shared;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Id;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.annotations.Cascade;
 
 /**
  * Class Passager
@@ -20,7 +24,7 @@ public class Passager {
 	private String nom;
 	private Voiture voiture;
 	private Event event;
-	
+
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -39,7 +43,8 @@ public class Passager {
 		this.nom = nom;
 	}
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
+	@JsonIgnore
 	public Voiture getVoiture() {
 		return voiture;
 	}
@@ -48,7 +53,8 @@ public class Passager {
 		this.voiture = voiture;
 	}
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
+	@JsonIgnore
 	public Event getEvent() {
 		return event;
 	}
